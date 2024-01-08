@@ -1,0 +1,673 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>知识库 | 知识库</title><meta name="author" content="Asuka"><meta name="copyright" content="Asuka"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="字符串常量此模块中定义的常量为： string.&#96;&#96;ascii_letters 下文所述 ascii_lowercase 和 ascii_uppercase 常量的拼连。 该值不依赖于语言区域。 string.&#96;&#96;ascii_lowercase 小写字母 &#39;abcdefghijklmnopqrstuvwxyz&#39;。 该值不依赖于语言区域，不会发生改变。 string.&#96;&#96;ascii_">
+<meta property="og:type" content="article">
+<meta property="og:title" content="知识库">
+<meta property="og:url" content="http://asuka23333.github.io/2024/01/08/Python/string%20---%20%E5%B8%B8%E8%A7%81%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%93%8D%E4%BD%9C/index.html">
+<meta property="og:site_name" content="知识库">
+<meta property="og:description" content="字符串常量此模块中定义的常量为： string.&#96;&#96;ascii_letters 下文所述 ascii_lowercase 和 ascii_uppercase 常量的拼连。 该值不依赖于语言区域。 string.&#96;&#96;ascii_lowercase 小写字母 &#39;abcdefghijklmnopqrstuvwxyz&#39;。 该值不依赖于语言区域，不会发生改变。 string.&#96;&#96;ascii_">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://asuka23333.github.io/img/net_icon.png">
+<meta property="article:published_time" content="2024-01-08T07:01:50.202Z">
+<meta property="article:modified_time" content="2023-12-29T14:19:14.823Z">
+<meta property="article:author" content="Asuka">
+<meta property="article:tag" content="Python Python标准库 字符串常量 自定义字符串格式化 格式字符串语法 模板字符串 辅助函数">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://asuka23333.github.io/img/net_icon.png"><link rel="shortcut icon" href="/img/net_icon.png"><link rel="canonical" href="http://asuka23333.github.io/2024/01/08/Python/string%20---%20%E5%B8%B8%E8%A7%81%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%93%8D%E4%BD%9C/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="stylesheet" href="/css/index.css?v=4.12.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.32/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":-1,"unescape":true,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '知识库',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: true,
+  isToc: true,
+  postUpdate: '2023-12-29 22:19:14'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.0.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/net_icon.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">41</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">39</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-language"></i><span> 语言</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/en/"><span> 英语</span></a></li><li><a class="site-page child" href="/ja/"><span> 日语</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-shopping-cart"></i><span> 电商</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/amazon/"><i class="fa-fw fas fa-shopping-cart"></i><span> 亚马逊</span></a></li><li><a class="site-page child" href="/rakuten/"><i class="fa-fw fas fa-shopping-cart"></i><span> 乐天</span></a></li><li><a class="site-page child" href="/yahoo/"><i class="fa-fw fas fa-shopping-cart"></i><span> 雅虎</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-folder-open"></i><span> 编程</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Python/"><span> Python</span></a></li><li><a class="site-page child" href="/Java/"><span> Java</span></a></li><li><a class="site-page child" href="/CMD/"><span> CMD</span></a></li><li><a class="site-page child" href="/CSharp/"><span> C#</span></a></li><li><a class="site-page child" href="/HTML/"><span> HTML</span></a></li><li><a class="site-page child" href="/CSS/"><span> CSS</span></a></li><li><a class="site-page child" href="/JavaScript/"><span> JavaScript</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 收藏链接</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="知识库"><span class="site-name">知识库</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-language"></i><span> 语言</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/en/"><span> 英语</span></a></li><li><a class="site-page child" href="/ja/"><span> 日语</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-shopping-cart"></i><span> 电商</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/amazon/"><i class="fa-fw fas fa-shopping-cart"></i><span> 亚马逊</span></a></li><li><a class="site-page child" href="/rakuten/"><i class="fa-fw fas fa-shopping-cart"></i><span> 乐天</span></a></li><li><a class="site-page child" href="/yahoo/"><i class="fa-fw fas fa-shopping-cart"></i><span> 雅虎</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-folder-open"></i><span> 编程</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Python/"><span> Python</span></a></li><li><a class="site-page child" href="/Java/"><span> Java</span></a></li><li><a class="site-page child" href="/CMD/"><span> CMD</span></a></li><li><a class="site-page child" href="/CSharp/"><span> C#</span></a></li><li><a class="site-page child" href="/HTML/"><span> HTML</span></a></li><li><a class="site-page child" href="/CSS/"><span> CSS</span></a></li><li><a class="site-page child" href="/JavaScript/"><span> JavaScript</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 收藏链接</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">无题</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-01-08T07:01:50.202Z" title="发表于 2024-01-08 15:01:50">2024-01-08</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-12-29T14:19:14.823Z" title="更新于 2023-12-29 22:19:14">2023-12-29</time></span></div><div class="meta-secondline"></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="字符串常量"><a href="#字符串常量" class="headerlink" title="字符串常量"></a>字符串常量</h2><p>此模块中定义的常量为：</p>
+<p><code>string.``ascii_letters</code><a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/string.html#string.ascii_letters" title="永久链接至目标"></a></p>
+<p>下文所述 <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/string.html#string.ascii_lowercase" title="string.ascii_lowercase"><code>ascii_lowercase</code></a> 和 <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/string.html#string.ascii_uppercase" title="string.ascii_uppercase"><code>ascii_uppercase</code></a> 常量的拼连。 该值不依赖于语言区域。</p>
+<p><code>string.``ascii_lowercase</code><a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/string.html#string.ascii_lowercase" title="永久链接至目标"></a></p>
+<p>小写字母 <code>&#39;abcdefghijklmnopqrstuvwxyz&#39;</code>。 该值不依赖于语言区域，不会发生改变。</p>
+<p><code>string.``ascii_uppercase</code><a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/string.html#string.ascii_uppercase" title="永久链接至目标"></a></p>
+<p>大写字母 <code>&#39;ABCDEFGHIJKLMNOPQRSTUVWXYZ&#39;</code>。 该值不依赖于语言区域，不会发生改变。</p>
+<p><code>string.``digits</code><a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/string.html#string.digits" title="永久链接至目标"></a></p>
+<p>字符串 <code>&#39;0123456789&#39;</code>。</p>
+<p><code>string.``hexdigits</code><a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/string.html#string.hexdigits" title="永久链接至目标"></a></p>
+<p>字符串 <code>&#39;0123456789abcdefABCDEF&#39;</code>。</p>
+<p><code>string.``octdigits</code><a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/string.html#string.octdigits" title="永久链接至目标"></a></p>
+<p>字符串 <code>&#39;01234567&#39;</code>。</p>
+<p><code>string.``punctuation</code><a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/string.html#string.punctuation" title="永久链接至目标"></a></p>
+<p>由在 <code>C</code> 区域设置中被视为标点符号的 ASCII 字符所组成的字符串: <code>!&quot;#$%&amp;&#39;()*+,-./:;&lt;=&gt;?@[\]^_`&#123;|&#125;~</code>.</p>
+<p><code>string.``printable</code><a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/string.html#string.printable" title="永久链接至目标"></a></p>
+<p>由被视为可打印符号的 ASCII 字符组成的字符串。 这是 <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/string.html#string.digits" title="string.digits"><code>digits</code></a>, <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/string.html#string.ascii_letters" title="string.ascii_letters"><code>ascii_letters</code></a>, <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/string.html#string.punctuation" title="string.punctuation"><code>punctuation</code></a> 和 <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/string.html#string.whitespace" title="string.whitespace"><code>whitespace</code></a> 的总和。</p>
+<p><code>string.``whitespace</code><a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/string.html#string.whitespace" title="永久链接至目标"></a></p>
+<p>由被视为空白符号的 ASCII 字符组成的字符串。 其中包括空格、制表、换行、回车、进纸和纵向制表符。</p>
+<h2 id="自定义字符串格式化"><a href="#自定义字符串格式化" class="headerlink" title="自定义字符串格式化"></a>自定义字符串格式化</h2><p>内置的字符串类提供了通过使用 <a target="_blank" rel="noopener" href="https://www.python.org/dev/peps/pep-3101"><strong>PEP 3101</strong></a> 所描述的 <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/stdtypes.html#str.format" title="str.format"><code>format()</code></a> 方法进行复杂变量替换和值格式化的能力。 <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/string.html#module-string" title="string: Common string operations."><code>string</code></a> 模块中的 <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/string.html#string.Formatter" title="string.Formatter"><code>Formatter</code></a> 类允许你使用与内置 <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/stdtypes.html#str.format" title="str.format"><code>format()</code></a> 方法相同的实现来创建并定制你自己的字符串格式化行为。</p>
+<p><em>class</em> <code>string.``Formatter</code><a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/string.html#string.Formatter" title="永久链接至目标"></a></p>
+<p><a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/string.html#string.Formatter" title="string.Formatter"><code>Formatter</code></a> 类包含下列公有方法：</p>
+<p><code>format</code>(<em>format_string</em>, <em>&#x2F;</em>, <em>*args</em>, <em>**kwargs</em>)<a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/string.html#string.Formatter.format" title="永久链接至目标"></a></p>
+<p>首要的 API 方法。 它接受一个格式字符串和任意一组位置和关键字参数。 它只是一个调用 <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/string.html#string.Formatter.vformat" title="string.Formatter.vformat"><code>vformat()</code></a> 的包装器。</p>
+<p>在 3.7 版更改: 格式字符串参数现在是 <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/glossary.html#positional-only-parameter">仅限位置参数</a>。</p>
+<p><code>vformat</code>(<em>format_string</em>, <em>args</em>, <em>kwargs</em>)<a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/string.html#string.Formatter.vformat" title="永久链接至目标"></a></p>
+<p>此函数执行实际的格式化操作。 它被公开为一个单独的函数，用于需要传入一个预定义字母作为参数，而不是使用 <code>*args</code> 和 <code>**kwargs</code> 语法将字典解包为多个单独参数并重打包的情况。 <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/string.html#string.Formatter.vformat" title="string.Formatter.vformat"><code>vformat()</code></a> 完成将格式字符串分解为字符数据和替换字段的工作。 它会调用下文所述的几种不同方法。</p>
+<p>此外，<a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/string.html#string.Formatter" title="string.Formatter"><code>Formatter</code></a> 还定义了一些旨在被子类替换的方法：</p>
+<p><code>parse</code>(<em>format_string</em>)<a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/string.html#string.Formatter.parse" title="永久链接至目标"></a></p>
+<p>循环遍历 format_string 并返回一个由可迭代对象组成的元组 (<em>literal_text</em>, <em>field_name</em>, <em>format_spec</em>, <em>conversion</em>)。 它会被 <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/string.html#string.Formatter.vformat" title="string.Formatter.vformat"><code>vformat()</code></a> 用来将字符串分解为文本字面值或替换字段。</p>
+<p>元组中的值在概念上表示一段字面文本加上一个替换字段。 如果没有字面文本（如果连续出现两个替换字段就会发生这种情况），则 <em>literal_text</em> 将是一个长度为零的字符串。 如果没有替换字段，则 <em>field_name</em>, <em>format_spec</em> 和 <em>conversion</em> 的值将为 <code>None</code>。</p>
+<p><code>get_field</code>(<em>field_name</em>, <em>args</em>, <em>kwargs</em>)<a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/string.html#string.Formatter.get_field" title="永久链接至目标"></a></p>
+<p>给定 <em>field_name</em> 作为 <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/string.html#string.Formatter.parse" title="string.Formatter.parse"><code>parse()</code></a> (见上文) 的返回值，将其转换为要格式化的对象。 返回一个元组 (obj, used_key)。 默认版本接受在 <a target="_blank" rel="noopener" href="https://www.python.org/dev/peps/pep-3101"><strong>PEP 3101</strong></a> 所定义形式的字符串，例如 “0[name]” 或 “label.title”。 <em>args</em> 和 <em>kwargs</em> 与传给 <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/string.html#string.Formatter.vformat" title="string.Formatter.vformat"><code>vformat()</code></a> 的一样。 返回值 <em>used_key</em> 与 <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/string.html#string.Formatter.get_value" title="string.Formatter.get_value"><code>get_value()</code></a> 的 <em>key</em> 形参具有相同的含义。</p>
+<p><code>get_value</code>(<em>key</em>, <em>args</em>, <em>kwargs</em>)<a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/string.html#string.Formatter.get_value" title="永久链接至目标"></a></p>
+<p>提取给定的字段值。 <em>key</em> 参数将为整数或字符串。 如果是整数，它表示 <em>args</em> 中位置参数的索引；如果是字符串，它表示 <em>kwargs</em> 中的关键字参数名。</p>
+<p><em>args</em> 形参会被设为 <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/string.html#string.Formatter.vformat" title="string.Formatter.vformat"><code>vformat()</code></a> 的位置参数列表，而 <em>kwargs</em> 形参会被设为由关键字参数组成的字典。</p>
+<p>对于复合字段名称，仅会为字段名称的第一个组件调用这些函数；后续组件会通过普通属性和索引操作来进行处理。</p>
+<p>因此举例来说，字段表达式 ‘0.name’ 将导致调用 <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/string.html#string.Formatter.get_value" title="string.Formatter.get_value"><code>get_value()</code></a> 时附带 <em>key</em> 参数值 0。 在 <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/string.html#string.Formatter.get_value" title="string.Formatter.get_value"><code>get_value()</code></a> 通过调用内置的 <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/functions.html#getattr" title="getattr"><code>getattr()</code></a> 函数返回后将会查找 <code>name</code> 属性。</p>
+<p>如果索引或关键字引用了一个不存在的项，则将引发 <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/exceptions.html#IndexError" title="IndexError"><code>IndexError</code></a> 或 <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/exceptions.html#KeyError" title="KeyError"><code>KeyError</code></a>。</p>
+<p><code>check_unused_args</code>(<em>used_args</em>, <em>args</em>, <em>kwargs</em>)<a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/string.html#string.Formatter.check_unused_args" title="永久链接至目标"></a></p>
+<p>在必要时实现对未使用参数进行检测。 此函数的参数是是格式字符串中实际引用的所有参数键的集合（整数表示位置参数，字符串表示名称参数），以及被传给 vformat 的 <em>args</em> 和 <em>kwargs</em> 的引用。 未使用参数的集合可以根据这些形参计算出来。 如果检测失败则 <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/string.html#string.Formatter.check_unused_args" title="string.Formatter.check_unused_args"><code>check_unused_args()</code></a> 应会引发一个异常。</p>
+<p><code>format_field</code>(<em>value</em>, <em>format_spec</em>)<a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/string.html#string.Formatter.format_field" title="永久链接至目标"></a></p>
+<p><a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/string.html#string.Formatter.format_field" title="string.Formatter.format_field"><code>format_field()</code></a> 会简单地调用内置全局函数 <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/functions.html#format" title="format"><code>format()</code></a>。 提供该方法是为了让子类能够重载它。</p>
+<p><code>convert_field</code>(<em>value</em>, <em>conversion</em>)<a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/string.html#string.Formatter.convert_field" title="永久链接至目标"></a></p>
+<p>使用给定的转换类型（来自 <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/string.html#string.Formatter.parse" title="string.Formatter.parse"><code>parse()</code></a> 方法所返回的元组）来转换（由 <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/string.html#string.Formatter.get_field" title="string.Formatter.get_field"><code>get_field()</code></a> 所返回的）值。 默认版本支持 ‘s’ (str), ‘r’ (repr) 和 ‘a’ (ascii) 等转换类型。</p>
+<h2 id="格式字符串语法"><a href="#格式字符串语法" class="headerlink" title="格式字符串语法"></a>格式字符串语法</h2><p><a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/stdtypes.html#str.format" title="str.format"><code>str.format()</code></a> 方法和 <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/string.html#string.Formatter" title="string.Formatter"><code>Formatter</code></a> 类共享相同的格式字符串语法（虽然对于 <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/string.html#string.Formatter" title="string.Formatter"><code>Formatter</code></a> 来说，其子类可以定义它们自己的格式字符串语法）。 具体语法与 <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/reference/lexical_analysis.html#f-strings">格式化字符串字面值</a> 相似，但较为简单一些，并且关键的一点是不支持任意表达式。</p>
+<p>格式字符串包含有以花括号 <code>&#123;&#125;</code> 括起来的“替换字段”。 不在花括号之内的内容被视为字面文本，会不加修改地复制到输出中。 如果你需要在字面文本中包含花括号字符，可以通过重复来转义: <code>&#123;&#123;` and `&#125;&#125;</code>。</p>
+<p>替换字段的语法如下：</p>
+<blockquote>
+<p><strong>replacement_field</strong> ::&#x3D;  “{“ [<a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/string.html#grammar-token-format-string-field_name"><code>field_name</code></a>] [“!” <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/string.html#grammar-token-format-string-conversion"><code>conversion</code></a>] [“:” <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/string.html#grammar-token-format-string-format_spec"><code>format_spec</code></a>] “}”<br>*<em>field_name       ** ::&#x3D;  arg_name (“.” <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/string.html#grammar-token-format-string-attribute_name"><code>attribute_name</code></a> | “[“ <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/string.html#grammar-token-format-string-element_index"><code>element_index</code></a> “]”)</em><br>**arg_name         ** ::&#x3D;  [<code>identifier</code> | <code>digit</code>+]<br>**attribute_name   ** ::&#x3D;  <code>identifier</code><br>**element_index    ** ::&#x3D;  <code>digit</code>+ | <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/string.html#grammar-token-format-string-index_string"><code>index_string</code></a><br>**index_string     ** ::&#x3D;  &lt;any source character except “]”&gt; +<br>**conversion       ** ::&#x3D;  “r” | “s” | “a”<br>**format_spec      ** ::&#x3D;  <described in the next section></p>
+</blockquote>
+<p>用不太正式的术语来描述，替换字段开头可以用一个 <em>field_name</em> 指定要对值进行格式化并取代替换字符被插入到输出结果的对象。 <em>field_name</em> 之后有可选的 <em>conversion</em> 字段，它是一个感叹号 <code>&#39;!&#39;</code> 加一个 _format_spec_，并以一个冒号 <code>&#39;:&#39;</code> 打头。 这些指明了替换值的非默认格式。</p>
+<p>另请参阅 <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/string.html#formatspec">格式规格迷你语言</a> 一节。</p>
+<p><em>field_name</em> 本身以一个数字或关键字 <em>arg_name</em> 打头。 如果为数字，则它指向一个位置参数，而如果为关键字，则它指向一个命名关键字参数。 如果格式字符串中的数字 arg_names 为 0, 1, 2, … 的序列，它们可以全部省略（而非部分省略），数字 0, 1, 2, … 将会按顺序自动插入。 由于 <em>arg_name</em> 不使用引号分隔，因此无法在格式字符串中指定任意的字典键 (例如字符串 <code>&#39;10&#39;</code> 或 <code>&#39;:-]&#39;</code>)。 <em>arg_name</em> 之后可以带上任意数量的索引或属性表达式。 <code>&#39;.name&#39;</code> 形式的表达式会使用 <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/functions.html#getattr" title="getattr"><code>getattr()</code></a> 选择命名属性，而 <code>&#39;[index]&#39;</code> 形式的表达式会使用 <code>__getitem__()</code> 执行索引查找。</p>
+<p>在 3.1 版更改: 位置参数说明符对于 <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/stdtypes.html#str.format" title="str.format"><code>str.format()</code></a> 可以省略，因此 <code>&#39;&#123;&#125; &#123;&#125;&#39;.format(a, b)</code> 等价于 <code>&#39;&#123;0&#125; &#123;1&#125;&#39;.format(a, b)</code>。</p>
+<p>在 3.4 版更改: 位置参数说明符对于 <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/string.html#string.Formatter" title="string.Formatter"><code>Formatter</code></a> 可以省略。</p>
+<p>一些简单的格式字符串示例</p>
+<p>“First, thou shalt count to {0}”  # References first positional argument<br>“Bring me a {}”                   # Implicitly references the first positional argument<br>“From {} to {}”                   # Same as “From {0} to {1}”<br>“My quest is {name}”              # References keyword argument ‘name’<br>“Weight in tons {0.weight}”       # ‘weight’ attribute of first positional arg<br>“Units destroyed: {players[0]}”   # First element of keyword argument ‘players’.</p>
+<p>使用 <em>conversion</em> 字段在格式化之前进行类型强制转换。 通常，格式化值的工作由值本身的 <code>__format__()</code> 方法来完成。 但是，在某些情况下最好强制将类型格式化为一个字符串，覆盖其本身的格式化定义。 通过在调用 <code>__format__()</code> 之前将值转换为字符串，可以绕过正常的格式化逻辑。</p>
+<p>目前支持的转换旗标有三种: <code>&#39;!s&#39;</code> 会对值调用 <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/stdtypes.html#str" title="str"><code>str()</code></a>，<code>&#39;!r&#39;</code> 调用 <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/functions.html#repr" title="repr"><code>repr()</code></a> 而 <code>&#39;!a&#39;</code> 则调用 <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/functions.html#ascii" title="ascii"><code>ascii()</code></a>。</p>
+<p>示例如下：</p>
+<p>“Harold’s a clever {0!s}”        # Calls str() on the argument first<br>“Bring out the holy {name!r}”    # Calls repr() on the argument first<br>“More {!a}”                      # Calls ascii() on the argument first</p>
+<p><em>format_spec</em> 字段包含值应如何呈现的规格描述，例如字段宽度、对齐、填充、小数精度等细节信息。 每种值类型可以定义自己的“格式化迷你语言”或对 <em>format_spec</em> 的解读方式。</p>
+<p>大多数内置类型都支持同样的格式化迷你语言，具体描述见下一节。</p>
+<p><em>format_spec</em> 字段还可以在其内部包含嵌套的替换字段。 这些嵌套的替换字段可能包括字段名称、转换旗标和格式规格描述，但是不再允许更深层的嵌套。 format_spec 内部的替换字段会在解读 <em>format_spec</em> 字符串之前先被解读。 这将允许动态地指定特定值的格式。</p>
+<p>请参阅 <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/string.html#formatexamples">格式示例</a> 一节查看相关示例。</p>
+<h3 id="格式规格迷你语言"><a href="#格式规格迷你语言" class="headerlink" title="格式规格迷你语言"></a>格式规格迷你语言</h3><p>“格式规格”在格式字符串所包含的替换字段内部使用，用于定义单个值应如何呈现 (参见 <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/string.html#formatstrings">格式字符串语法</a> 和 <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/reference/lexical_analysis.html#f-strings">格式字符串字面值</a>)。 它们也可以被直接传给内置的 <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/functions.html#format" title="format"><code>format()</code></a> 函数。 每种可格式化的类型都可以自行定义如何对格式规格进行解读。</p>
+<p>大多数内置类型都为格式规格实现了下列选项，不过某些格式化选项只被数值类型所支持。</p>
+<p>一般约定空的格式描述将产生与在值上调用 <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/stdtypes.html#str" title="str"><code>str()</code></a> 相同的结果。 非空格式描述通常会修改此结果。</p>
+<p><em>标准格式说明符</em> 的一般形式如下：</p>
+<p>**format_spec    ** ::&#x3D;  [[<a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/string.html#grammar-token-format-spec-fill"><code>fill</code></a>]<a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/string.html#grammar-token-format-spec-align"><code>align</code></a>][<a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/string.html#grammar-token-format-spec-sign"><code>sign</code></a>][#][0][<a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/string.html#grammar-token-format-spec-width"><code>width</code></a>][<a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/string.html#grammar-token-format-spec-grouping_option"><code>grouping_option</code></a>][.<a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/string.html#grammar-token-format-spec-precision"><code>precision</code></a>][<a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/string.html#grammar-token-format-spec-type"><code>type</code></a>]<br>**fill           ** ::&#x3D;  <any character><br>**align          ** ::&#x3D;  “&lt;” | “&gt;” | “&#x3D;” | “^”<br>**sign           ** ::&#x3D;  “+” | “-“ | “ “<br>**width          ** ::&#x3D;  <code>digit</code>+<br><strong>grouping_option</strong> ::&#x3D;  “_” | “,”<br>**precision      ** ::&#x3D;  <code>digit</code>+<br>**type           ** ::&#x3D;  “b” | “c” | “d” | “e” | “E” | “f” | “F” | “g” | “G” | “n” | “o” | “s” | “x” | “X” | “%”</p>
+<p>如果指定了一个有效的 <em>align</em> 值，则可以在该值前面加一个 <em>fill</em> 字符，它可以为任意字符，如果省略则默认为空格符。 在 <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/reference/lexical_analysis.html#f-strings">格式化字符串字面值</a> 或在使用 <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/stdtypes.html#str.format" title="str.format"><code>str.format()</code></a> 方法时是无法使用花括号字面值 (“<code>&#123;</code>“ or “<code>&#125;</code>“) 作为 <em>fill</em> 字符的。 但是，通过嵌套替换字段插入花括号则是可以的。 这个限制不会影响 <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/functions.html#format" title="format"><code>format()</code></a> 函数。</p>
+<p>各种对齐选项的含义如下：</p>
+<blockquote>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>含意</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>&#39;&lt;&#39;</code></td>
+<td>强制字段在可用空间内左对齐（这是大多数对象的默认值）。</td>
+</tr>
+<tr>
+<td><code>&#39;&gt;&#39;</code></td>
+<td>强制字段在可用空间内右对齐（这是数字的默认值）。</td>
+</tr>
+<tr>
+<td><code>&#39;=&#39;</code></td>
+<td>强制在符号（如果有）之后数码之前放置填充。 这被用于以 ‘+000000120’ 形式打印字段。 这个对齐选项仅对数字类型有效。 这是当 ‘0’ 紧接在字段宽度之前时的默认选项。</td>
+</tr>
+<tr>
+<td><code>&#39;^&#39;</code></td>
+<td>强制字段在可用空间内居中。</td>
+</tr>
+</tbody></table>
+</blockquote>
+<p>请注意，除非定义了最小字段宽度，否则字段宽度将始终与填充它的数据大小相同，因此在这种情况下，对齐选项没有意义。</p>
+<p><em>sign</em> 选项仅对数字类型有效，可以是以下之一：</p>
+<blockquote>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>含意</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>&#39;+&#39;</code></td>
+<td>表示标志应该用于正数和负数。</td>
+</tr>
+<tr>
+<td><code>&#39;-&#39;</code></td>
+<td>表示标志应仅用于负数（这是默认行为）。</td>
+</tr>
+<tr>
+<td>space</td>
+<td>表示应在正数上使用前导空格，在负数上使用减号。</td>
+</tr>
+</tbody></table>
+</blockquote>
+<p><code>&#39;#&#39;</code> 选项可让“替代形式”被用于执行转换。 替代形式会针对不同的类型分别定义。 此选项仅适用于整数、浮点数和复数类型。 对于整数类型，当使用二进制、八进制或十六进制输出时，此选项会为输出值分别添加相应的 <code>&#39;0b&#39;</code>, <code>&#39;0o&#39;</code>, <code>&#39;0x&#39;</code> 或 <code>&#39;0X&#39;</code> 前缀。 对于浮点数和复数类型，替代形式会使得转换结果总是包含小数点符号，即使其不带小数部分。 通常只有在带有小数部分的情况下，此类转换的结果中才会出现小数点符号。 此外，对于 <code>&#39;g&#39;</code> 和 <code>&#39;G&#39;</code> 转换，末尾的零不会从结果中被移除。</p>
+<p><code>&#39;,&#39;</code> 选项表示使用逗号作为千位分隔符。 对于感应区域设置的分隔符，请改用 <code>&#39;n&#39;</code> 整数表示类型。</p>
+<p>在 3.1 版更改: 添加了 <code>&#39;,&#39;</code> 选项 (另请参阅 <a target="_blank" rel="noopener" href="https://www.python.org/dev/peps/pep-0378"><strong>PEP 378</strong></a>)。</p>
+<p><code>&#39;_&#39;</code> 选项表示对浮点表示类型和整数表示类型 <code>&#39;d&#39;</code> 使用下划线作为千位分隔符。 对于整数表示类型 <code>&#39;b&#39;</code>, <code>&#39;o&#39;</code>, <code>&#39;x&#39;</code> 和 <code>&#39;X&#39;</code>，将为每 4 个数位插入一个下划线。 对于其他表示类型指定此选项则将导致错误。</p>
+<p>在 3.6 版更改: 添加了 <code>&#39;_&#39;</code> 选项 (另请参阅 <a target="_blank" rel="noopener" href="https://www.python.org/dev/peps/pep-0515"><strong>PEP 515</strong></a>)。</p>
+<p><em>width</em> 是一个定义最小总字段宽度的十进制整数，包括任何前缀、分隔符和其他格式化字符。 如果未指定，则字段宽度将由内容确定。</p>
+<p>当未显式给出对齐方式时，在 <em>width</em> 字段前加一个零 (<code>&#39;0&#39;</code>) 字段将为数字类型启用感知正负号的零填充。 这相当于设置 <em>fill</em> 字符为 <code>&#39;0&#39;</code> 且 <em>alignment</em> 类型为 <code>&#39;=&#39;</code>。</p>
+<p>在 3.10 版更改: 在 <em>width</em> 字段之前添加 <code>&#39;0&#39;</code> 不会再影响字符串的默认对齐。</p>
+<p><em>precision</em> 是一个十进制整数，它表示对于以表示类型 <code>&#39;f&#39;</code> 和 <code>&#39;F&#39;</code> 格式化的数值应当在小数点后显示多少个数位，或者对于以表示类型 <code>&#39;g&#39;</code> 或 <code>&#39;G&#39;</code> 格式化的数值应当在小数点前后显示多少个数位。 对于字符串表示类型，该字段表示最大的字段大小 ——换句话说，就是要使用多少个来自字段内容的字符。不允许对整数表示类型指定 <em>precision</em> 字段。</p>
+<p>最后，<em>type</em> 确定了数据应如何呈现。</p>
+<p>可用的字符串表示类型是：</p>
+<blockquote>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>含意</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>&#39;s&#39;</code></td>
+<td>字符串格式。这是字符串的默认类型，可以省略。</td>
+</tr>
+<tr>
+<td>None</td>
+<td>和 <code>&#39;s&#39;</code> 一样。</td>
+</tr>
+</tbody></table>
+</blockquote>
+<p>可用的整数表示类型是：</p>
+<blockquote>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>含意</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>&#39;b&#39;</code></td>
+<td>二进制格式。 输出以 2 为基数的数字。</td>
+</tr>
+<tr>
+<td><code>&#39;c&#39;</code></td>
+<td>字符。在打印之前将整数转换为相应的unicode字符。</td>
+</tr>
+<tr>
+<td><code>&#39;d&#39;</code></td>
+<td>十进制整数。 输出以 10 为基数的数字。</td>
+</tr>
+<tr>
+<td><code>&#39;o&#39;</code></td>
+<td>八进制格式。 输出以 8 为基数的数字。</td>
+</tr>
+<tr>
+<td><code>&#39;x&#39;</code></td>
+<td>十六进制格式。 输出以 16 为基数的数字，使用小写字母表示 9 以上的数码。</td>
+</tr>
+<tr>
+<td><code>&#39;X&#39;</code></td>
+<td>十六进制格式。 输出以 16 为基数的数字，使用大写字母表示 9 以上的数码。 在指定 <code>&#39;#&#39;</code> 的情况下，前缀 <code>&#39;0x&#39;</code> 也将被转为大写形式 <code>&#39;0X&#39;</code>。</td>
+</tr>
+<tr>
+<td><code>&#39;n&#39;</code></td>
+<td>数字。 这与 <code>&#39;d&#39;</code> 相似，不同之处在于它会使用当前区域设置来插入适当的数字分隔字符。</td>
+</tr>
+<tr>
+<td>None</td>
+<td>和 <code>&#39;d&#39;</code> 相同。</td>
+</tr>
+</tbody></table>
+</blockquote>
+<p>在上述的表示类型之外，整数还可以通过下列的浮点表示类型来格式化 (除了 <code>&#39;n&#39;</code> 和 <code>None</code>)。 当这样做时，会在格式化之前使用 <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/functions.html#float" title="float"><code>float()</code></a> 将整数转换为浮点数。</p>
+<p><a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/functions.html#float" title="float"><code>float</code></a> 和 <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/decimal.html#decimal.Decimal" title="decimal.Decimal"><code>Decimal</code></a> 值的可用表示类型有:</p>
+<blockquote>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>含意</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>&#39;e&#39;</code></td>
+<td>科学计数法。 对于一个给定的精度 <code>p</code>，将数字格式化为以字母 ‘e’ 分隔系数和指数的科学计数法形式。 系数在小数点之前有一位，之后有 <code>p</code> 位，总计 <code>p + 1</code> 个有效数位。 如未指定精度，则会对 <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/functions.html#float" title="float"><code>float</code></a> 采用小数点之后 <code>6</code> 位精度，而对 <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/decimal.html#decimal.Decimal" title="decimal.Decimal"><code>Decimal</code></a> 则显示所有系数位。 如果小数点之后没有数位，则小数点也会被略去，除非使用了 <code>#</code> 选项。</td>
+</tr>
+<tr>
+<td><code>&#39;E&#39;</code></td>
+<td>科学计数法。 与 <code>&#39;e&#39;</code> 相似，不同之处在于它使用大写字母 ‘E’ 作为分隔字符。</td>
+</tr>
+<tr>
+<td><code>&#39;f&#39;</code></td>
+<td>定点表示法。 对于一个给定的精度 <code>p</code>，将数字格式化为在小数点之后恰好有 <code>p</code> 位的小数形式。 如未指定精度，则会对 <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/functions.html#float" title="float"><code>float</code></a> 采用小数点之后 <code>6</code> 位精度，而对 <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/decimal.html#decimal.Decimal" title="decimal.Decimal"><code>Decimal</code></a> 则使用大到足够显示所有系数位的精度。 如果小数点之后没有数位，则小数点也会被略去，除非使用了 <code>#</code> 选项。</td>
+</tr>
+<tr>
+<td><code>&#39;F&#39;</code></td>
+<td>定点表示。 与 <code>&#39;f&#39;</code> 相似，但会将 <code>nan</code> 转为 <code>NAN</code> 并将 <code>inf</code> 转为 <code>INF</code>。</td>
+</tr>
+<tr>
+<td><code>&#39;g&#39;</code></td>
+<td>常规格式。 对于给定精度 <code>p &gt;= 1</code>，这会将数值舍入到 <code>p</code> 个有效数位，再将结果以定点表示法或科学计数法进行格式化，具体取决于其值的大小。 精度 <code>0</code> 会被视为等价于精度 <code>1</code>。<br><br>准确的规则如下：假设使用表示类型 <code>&#39;e&#39;</code> 和精度 <code>p-1</code> 进行格式化的结果具有指数值 <code>exp</code>。 那么如果 <code>m &lt;= exp &lt; p</code>，其中 <code>m</code> 以 -4 表示浮点值而以 -6 表示 <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/decimal.html#decimal.Decimal" title="decimal.Decimal"><code>Decimal</code></a> 值，该数字将使用类型 <code>&#39;f&#39;</code> 和精度 <code>p-1-exp</code> 进行格式化。 否则的话，该数字将使用表示类型 <code>&#39;e&#39;</code> 和精度 <code>p-1</code> 进行格式化。 在两种情况下，都会从有效数字中移除无意义的末尾零，如果小数点之后没有余下数字则小数点也会被移除，除非使用了 <code>&#39;#&#39;</code> 选项。<br><br>如未指定精度，会对 <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/functions.html#float" title="float"><code>float</code></a> 采用 <code>6</code> 个有效数位的精度。 对于 <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/decimal.html#decimal.Decimal" title="decimal.Decimal"><code>Decimal</code></a>，结果的系数会沿用原值的系数数位；对于绝对值小于 <code>1e-6</code> 的值以及最小有效数位的位值大于 1 的数值将会使用科学计数法，在其他情况下则会使用定点表示法。<br><br>正负无穷，正负零和 nan 会分别被格式化为 <code>inf</code>, <code>-inf</code>, <code>0</code>, <code>-0</code> 和 <code>nan</code>，无论精度如何设定。</td>
+</tr>
+<tr>
+<td><code>&#39;G&#39;</code></td>
+<td>常规格式。 类似于 <code>&#39;g&#39;</code>，不同之处在于当数值非常大时会切换为 <code>&#39;E&#39;</code>。 无穷与 NaN 也会表示为大写形式。</td>
+</tr>
+<tr>
+<td><code>&#39;n&#39;</code></td>
+<td>数字。 这与 <code>&#39;g&#39;</code> 相似，不同之处在于它会使用当前区域设置来插入适当的数字分隔字符。</td>
+</tr>
+<tr>
+<td><code>&#39;%&#39;</code></td>
+<td>百分比。 将数字乘以 100 并显示为定点 (<code>&#39;f&#39;</code>) 格式，后面带一个百分号。</td>
+</tr>
+<tr>
+<td>None</td>
+<td>对于 <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/functions.html#float" title="float"><code>float</code></a> 来说这类似于 <code>&#39;g&#39;</code>，不同之处在于当使用定点表示法时，小数点之后将至少显示一位。 所用的精度会大到足以精确表示给定的值。<br><br>对于 <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/decimal.html#decimal.Decimal" title="decimal.Decimal"><code>Decimal</code></a> 来说这相当于 <code>&#39;g&#39;</code> 或 <code>&#39;G&#39;</code>，具体取决于当前 decimal 上下文的 <code>context.capitals</code> 值。<br><br>总体效果是将 <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/stdtypes.html#str" title="str"><code>str()</code></a> 的输出匹配为其他格式化因子所调整出的样子。</td>
+</tr>
+</tbody></table>
+</blockquote>
+<h3 id="格式示例"><a href="#格式示例" class="headerlink" title="格式示例"></a>格式示例</h3><p>本节包含 <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/stdtypes.html#str.format" title="str.format"><code>str.format()</code></a> 语法的示例以及与旧式 <code>%</code> 格式化的比较。</p>
+<p>该语法在大多数情况下与旧式的 <code>%</code> 格式化类似，只是增加了 <code>&#123;&#125;</code> 和 <code>:</code> 来取代 <code>%</code>。 例如，，<code>&#39;%03.2f&#39;</code> 可以被改写为 <code>&#39;&#123;:03.2f&#125;&#39;</code>。</p>
+<p>新的格式语法还支持新增的不同选项，将在以下示例中说明。</p>
+<p>按位置访问参数:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>‘{0}, {1}, {2}’.format(‘a’, ‘b’, ‘c’)<br>‘a, b, c’<br>‘{}, {}, {}’.format(‘a’, ‘b’, ‘c’)  # 3.1+ only<br>‘a, b, c’<br>‘{2}, {1}, {0}’.format(‘a’, ‘b’, ‘c’)<br>‘c, b, a’<br>‘{2}, {1}, {0}’.format(*’abc’)      # unpacking argument sequence<br>‘c, b, a’<br>‘{0}{1}{0}’.format(‘abra’, ‘cad’)   # arguments’ indices can be repeated<br>‘abracadabra’</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>按名称访问参数:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>‘Coordinates: {latitude}, {longitude}’.format(latitude&#x3D;’37.24N’, longitude&#x3D;’-115.81W’)<br>‘Coordinates: 37.24N, -115.81W’<br>coord &#x3D; {‘latitude’: ‘37.24N’, ‘longitude’: ‘-115.81W’}<br>‘Coordinates: {latitude}, {longitude}’.format(**coord)<br>‘Coordinates: 37.24N, -115.81W’</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>访问参数的属性:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>c &#x3D; 3-5j<br>(‘The complex number {0} is formed from the real part {0.real} ‘<br>…  ‘and the imaginary part {0.imag}.’).format(c)<br>‘The complex number (3-5j) is formed from the real part 3.0 and the imaginary part -5.0.’<br>class Point:<br>…     def <strong>init</strong>(self, x, y):<br>…         self.x, self.y &#x3D; x, y<br>…     def <strong>str</strong>(self):<br>…         return ‘Point({self.x}, {self.y})’.format(self&#x3D;self)<br>…<br>str(Point(4, 2))<br>‘Point(4, 2)’</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>访问参数的项:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>coord &#x3D; (3, 5)<br>‘X: {0[0]};  Y: {0[1]}’.format(coord)<br>‘X: 3;  Y: 5’</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>替代 <code>%s</code> 和 <code>%r</code>:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>“repr() shows quotes: {!r}; str() doesn’t: {!s}”.format(‘test1’, ‘test2’)<br>“repr() shows quotes: ‘test1’; str() doesn’t: test2”</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>对齐文本以及指定宽度:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>‘{:&lt;30}’.format(‘left aligned’)<br>‘left aligned                  ‘<br>‘{:&gt;30}’.format(‘right aligned’)<br>‘                 right aligned’<br>‘{:^30}’.format(‘centered’)<br>‘           centered           ‘<br>‘{:<em>^30}’.format(‘centered’)  # use ‘</em>‘ as a fill char<br>‘<em><strong><strong><strong><strong><strong>centered</strong></strong></strong></strong></strong></em>‘</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>替代 <code>%+f</code>, <code>%-f</code> 和 <code>% f</code> 以及指定正负号:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>‘{:+f}; {:+f}’.format(3.14, -3.14)  # show it always<br>‘+3.140000; -3.140000’<br>‘{: f}; {: f}’.format(3.14, -3.14)  # show a space for positive numbers<br>‘ 3.140000; -3.140000’<br>‘{:-f}; {:-f}’.format(3.14, -3.14)  # show only the minus – same as ‘{:f}; {:f}’<br>‘3.140000; -3.140000’</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>替代 <code>%x</code> 和 <code>%o</code> 以及转换基于不同进位制的值:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<h1 id="format-also-supports-binary-numbers"><a href="#format-also-supports-binary-numbers" class="headerlink" title="format also supports binary numbers"></a>format also supports binary numbers</h1><p>“int: {0:d};  hex: {0:x};  oct: {0:o};  bin: {0:b}”.format(42)<br>‘int: 42;  hex: 2a;  oct: 52;  bin: 101010’</p>
+<h1 id="with-0x-0o-or-0b-as-prefix"><a href="#with-0x-0o-or-0b-as-prefix" class="headerlink" title="with 0x, 0o, or 0b as prefix:"></a>with 0x, 0o, or 0b as prefix:</h1><p>“int: {0:d};  hex: {0:#x};  oct: {0:#o};  bin: {0:#b}”.format(42)<br>‘int: 42;  hex: 0x2a;  oct: 0o52;  bin: 0b101010’</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>使用逗号作为千位分隔符:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>‘{:,}’.format(1234567890)<br>‘1,234,567,890’</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>表示为百分数:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>points &#x3D; 19<br>total &#x3D; 22<br>‘Correct answers: {:.2%}’.format(points&#x2F;total)<br>‘Correct answers: 86.36%’</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>使用特定类型的专属格式化:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>import datetime<br>d &#x3D; datetime.datetime(2010, 7, 4, 12, 15, 58)<br>‘{:%Y-%m-%d %H:%M:%S}’.format(d)<br>‘2010-07-04 12:15:58’</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>嵌套参数以及更复杂的示例:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>for align, text in zip(‘&lt;^&gt;’, [‘left’, ‘center’, ‘right’]):<br>…     ‘{0:{fill}{align}16}’.format(text, fill&#x3D;align, align&#x3D;align)<br>…<br>‘left&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;’<br>‘^^^^^center^^^^^’<br>‘&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;right’</p>
+<p>octets &#x3D; [192, 168, 0, 1]<br>‘{:02X}{:02X}{:02X}{:02X}’.format(*octets)<br>‘C0A80001’<br>int(_, 16)<br>3232235521</p>
+<p>width &#x3D; 5<br>for num in range(5,12):<br>…     for base in ‘dXob’:<br>…         print(‘{0:{width}{base}}’.format(num, base&#x3D;base, width&#x3D;width), end&#x3D;’ ‘)<br>…     print()<br>…<br>    5     5     5   101<br>    6     6     6   110<br>    7     7     7   111<br>    8     8    10  1000<br>    9     9    11  1001<br>   10     A    12  1010<br>   11     B    13  1011</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<h2 id="模板字符串"><a href="#模板字符串" class="headerlink" title="模板字符串"></a>模板字符串</h2><p>模板字符串提供了由 <a target="_blank" rel="noopener" href="https://www.python.org/dev/peps/pep-0292"><strong>PEP 292</strong></a> 所描述的更简便的字符串替换方式。 模板字符串的一个主要用例是文本国际化 (i18n)，因为在此情境下，更简单的语法和功能使得文本翻译过程比使用 Python 的其他内置字符串格式化工具更方便。 作为基于模板字符串构建以实现 i18n 的库的一个例子，请参看 <a target="_blank" rel="noopener" href="https://flufli18n.readthedocs.io/en/latest/">flufl.i18n</a> 包。</p>
+<p>模板字符串支持基于 <code>$</code> 的替换，使用以下规则：</p>
+<ul>
+<li><p><code>$$</code> 为转义符号；它会被替换为单个的 <code>$</code>。</p>
+</li>
+<li><p><code>$identifier</code> 为替换占位符，它会匹配一个名为 <code>&quot;identifier&quot;</code> 的映射键。 在默认情况下，<code>&quot;identifier&quot;</code> 限制为任意 ASCII 字母数字（包括下划线）组成的字符串，不区分大小写，以下划线或 ASCII 字母开头。 在 <code>$</code> 字符之后的第一个非标识符字符将表明占位符的终结。</p>
+</li>
+<li><p><code>$&#123;identifier&#125;</code> 等价于 <code>$identifier</code>。 当占位符之后紧跟着有效的但又不是占位符一部分的标识符字符时需要使用，例如 <code>&quot;$&#123;noun&#125;ification&quot;</code>。</p>
+</li>
+</ul>
+<p>在字符串的其他位置出现 <code>$</code> 将导致引发 <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/exceptions.html#ValueError" title="ValueError"><code>ValueError</code></a>。</p>
+<p><a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/string.html#module-string" title="string: Common string operations."><code>string</code></a> 模块提供了实现这些规则的 <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/string.html#string.Template" title="string.Template"><code>Template</code></a> 类。 <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/string.html#string.Template" title="string.Template"><code>Template</code></a> 有下列方法：</p>
+<p><em>class</em> <code>string.``Template</code>(<em>template</em>)<a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/string.html#string.Template" title="永久链接至目标"></a></p>
+<p>该构造器接受一个参数作为模板字符串。</p>
+<p><code>substitute</code>(<em>mapping&#x3D;{}</em>, <em>&#x2F;</em>, <em>**kwds</em>)<a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/string.html#string.Template.substitute" title="永久链接至目标"></a></p>
+<p>执行模板替换，返回一个新字符串。 <em>mapping</em> 为任意字典类对象，其中的键将匹配模板中的占位符。 或者你也可以提供一组关键字参数，其中的关键字即对应占位符。 当同时给出 <em>mapping</em> 和 <em>kwds</em> 并且存在重复时，则以 <em>kwds</em> 中的占位符为优先。</p>
+<p><code>safe_substitute</code>(<em>mapping&#x3D;{}</em>, <em>&#x2F;</em>, <em>**kwds</em>)<a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/string.html#string.Template.safe_substitute" title="永久链接至目标"></a></p>
+<p>类似于 <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/string.html#string.Template.substitute" title="string.Template.substitute"><code>substitute()</code></a>，不同之处是如果有占位符未在 <em>mapping</em> 和 <em>kwds</em> 中找到，不是引发 <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/exceptions.html#KeyError" title="KeyError"><code>KeyError</code></a> 异常，而是将原始占位符不加修改地显示在结果字符串中。 另一个与 <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/string.html#string.Template.substitute" title="string.Template.substitute"><code>substitute()</code></a> 的差异是任何在其他情况下出现的 <code>$</code> 将简单地返回 <code>$</code> 而不是引发 <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/exceptions.html#ValueError" title="ValueError"><code>ValueError</code></a>。</p>
+<p>此方法被认为“安全”，因为虽然仍有可能发生其他异常，但它总是尝试返回可用的字符串而不是引发一个异常。 从另一方面来说，<a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/string.html#string.Template.safe_substitute" title="string.Template.safe_substitute"><code>safe_substitute()</code></a> 也可能根本算不上安全，因为它将静默地忽略错误格式的模板，例如包含多余的分隔符、不成对的花括号或不是合法 Python 标识符的占位符等等。</p>
+<p><a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/string.html#string.Template" title="string.Template"><code>Template</code></a> 的实例还提供一个公有数据属性：</p>
+<p><code>template</code><a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/string.html#string.Template.template" title="永久链接至目标"></a></p>
+<p>这是作为构造器的 <em>template</em> 参数被传入的对象。 一般来说，你不应该修改它，但并不强制要求只读访问。</p>
+<p>以下是一个如何使用模版的示例：</p>
+<blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>from string import Template<br>s &#x3D; Template(‘$who likes $what’)<br>s.substitute(who&#x3D;’tim’, what&#x3D;’kung pao’)<br>‘tim likes kung pao’<br>d &#x3D; dict(who&#x3D;’tim’)<br>Template(‘Give $who $100’).substitute(d)<br>Traceback (most recent call last):<br>…<br>ValueError: Invalid placeholder in string: line 1, col 11<br>Template(‘$who likes $what’).substitute(d)<br>Traceback (most recent call last):<br>…<br>KeyError: ‘what’<br>Template(‘$who likes $what’).safe_substitute(d)<br>‘tim likes $what’</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>进阶用法：你可以派生 <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/string.html#string.Template" title="string.Template"><code>Template</code></a> 的子类来自定义占位符语法、分隔符，或用于解析模板字符串的整个正则表达式。 为此目的，你可以重载这些类属性：</p>
+<ul>
+<li><p><em>delimiter</em> – 这是用来表示占位符的起始的分隔符的字符串字面值。 默认值为 <code>$</code>。 请注意此参数 <em>不能</em> 为正则表达式，因为其实现将在必要时对此字符串调用 <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/re.html#re.escape" title="re.escape"><code>re.escape()</code></a>。 还要注意你不能在创建类之后改变此分隔符（例如在子类的类命名空间中必须设置不同的分隔符）。</p>
+</li>
+<li><p><em>idpattern</em> – 这是用来描述不带花括号的占位符的模式的正则表达式。 默认值为正则表达式 <code>(?a:[_a-z][_a-z0-9]*)</code>。 如果给出了此属性并且 <em>braceidpattern</em> 为 <code>None</code> 则此模式也将作用于带花括号的占位符。</p>
+<p>  注解</p>
+<p>   </p>
+<p>  由于默认的 <em>flags</em> 为 <code>re.IGNORECASE</code>，模式 <code>[a-z]</code> 可以匹配某些非 ASCII 字符。 因此我们在这里使用了局部旗标 <code>a</code>。</p>
+<p>  在 3.7 版更改: <em>braceidpattern</em> 可被用来定义对花括号内部和外部进行区分的模式。</p>
+</li>
+<li><p><em>braceidpattern</em> – 此属性类似于 <em>idpattern</em> 但是用来描述带花括号的占位符的模式。 默认值 <code>None</code> 意味着回退到 <em>idpattern</em> (即在花括号内部和外部使用相同的模式)。 如果给出此属性，这将允许你为带花括号和不带花括号的占位符定义不同的模式。</p>
+<p>  3.7 新版功能.</p>
+</li>
+<li><p><em>flags</em> – 将在编译用于识别替换内容的正则表达式被应用的正则表达式旗标。 默认值为 <code>re.IGNORECASE</code>。 请注意 <code>re.VERBOSE</code> 总是会被加为旗标，因此自定义的 <em>idpattern</em> 必须遵循详细正则表达式的约定。</p>
+<p>  3.2 新版功能.</p>
+</li>
+</ul>
+<p>作为另一种选项，你可以通过重载类属性 <em>pattern</em> 来提供整个正则表达式模式。 如果你这样做，该值必须为一个具有四个命名捕获组的正则表达式对象。 这些捕获组对应于上面已经给出的规则，以及无效占位符的规则：</p>
+<ul>
+<li><p><em>escaped</em> – 这个组匹配转义序列，在默认模式中即 <code>$$</code>。</p>
+</li>
+<li><p><em>named</em> – 这个组匹配不带花括号的占位符名称；它不应当包含捕获组中的分隔符。</p>
+</li>
+<li><p><em>braced</em> – 这个组匹配带有花括号的占位符名称；它不应当包含捕获组中的分隔符或者花括号。</p>
+</li>
+<li><p><em>invalid</em> – 这个组匹配任何其他分隔符模式（通常为单个分隔符），并且它应当出现在正则表达式的末尾。</p>
+</li>
+</ul>
+<h2 id="辅助函数"><a href="#辅助函数" class="headerlink" title="辅助函数"></a>辅助函数</h2><p><code>string.``capwords</code>(<em>s</em>, <em>sep&#x3D;None</em>)<a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/string.html#string.capwords" title="永久链接至目标"></a></p>
+<p>使用 <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/stdtypes.html#str.split" title="str.split"><code>str.split()</code></a> 将参数拆分为单词，使用 <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/stdtypes.html#str.capitalize" title="str.capitalize"><code>str.capitalize()</code></a> 将单词转为大写形式，使用 <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.10/library/stdtypes.html#str.join" title="str.join"><code>str.join()</code></a> 将大写的单词进行拼接。 如果可选的第二个参数 <em>sep</em> 被省略或为 <code>None</code>，则连续的空白字符会被替换为单个空格符并且开头和末尾的空白字符会被移除，否则 <em>sep</em> 会被用来拆分和拼接单词。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://Asuka23333.github.io">Asuka</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://asuka23333.github.io/2024/01/08/Python/string%20---%20%E5%B8%B8%E8%A7%81%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%93%8D%E4%BD%9C/">http://asuka23333.github.io/2024/01/08/Python/string --- 常见的字符串操作/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://Asuka23333.github.io" target="_blank">知识库</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Python-Python%E6%A0%87%E5%87%86%E5%BA%93-%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%B8%B8%E9%87%8F-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%A0%BC%E5%BC%8F%E5%8C%96-%E6%A0%BC%E5%BC%8F%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%AF%AD%E6%B3%95-%E6%A8%A1%E6%9D%BF%E5%AD%97%E7%AC%A6%E4%B8%B2-%E8%BE%85%E5%8A%A9%E5%87%BD%E6%95%B0/">Python Python标准库 字符串常量 自定义字符串格式化 格式字符串语法 模板字符串 辅助函数</a></div><div class="post_share"><div class="social-share" data-image="/img/net_icon.png" data-sites="wechat,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/01/08/Python/%E5%85%83%E7%BB%84/" title=""><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info"></div></div></a></div><div class="next-post pull-right"><a href="/2024/01/08/Python/re%20---%20%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%93%8D%E4%BD%9C/" title=""><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info"></div></div></a></div></nav><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="waline-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">个人知识库, 用于记录学习笔记, 有兴趣可以一起交流</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%B8%B8%E9%87%8F"><span class="toc-number">1.</span> <span class="toc-text">字符串常量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%A0%BC%E5%BC%8F%E5%8C%96"><span class="toc-number">2.</span> <span class="toc-text">自定义字符串格式化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%BC%E5%BC%8F%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%AF%AD%E6%B3%95"><span class="toc-number">3.</span> <span class="toc-text">格式字符串语法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%BC%E5%BC%8F%E8%A7%84%E6%A0%BC%E8%BF%B7%E4%BD%A0%E8%AF%AD%E8%A8%80"><span class="toc-number">3.1.</span> <span class="toc-text">格式规格迷你语言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%BC%E5%BC%8F%E7%A4%BA%E4%BE%8B"><span class="toc-number">3.2.</span> <span class="toc-text">格式示例</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#format-also-supports-binary-numbers"><span class="toc-number"></span> <span class="toc-text">format also supports binary numbers</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#with-0x-0o-or-0b-as-prefix"><span class="toc-number"></span> <span class="toc-text">with 0x, 0o, or 0b as prefix:</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E6%9D%BF%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-number">1.</span> <span class="toc-text">模板字符串</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BE%85%E5%8A%A9%E5%87%BD%E6%95%B0"><span class="toc-number">2.</span> <span class="toc-text">辅助函数</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/01/08/Python/%E9%9B%86%E5%90%88/" title="无题">无题</a><time datetime="2024-01-08T07:01:50.225Z" title="发表于 2024-01-08 15:01:50">2024-01-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/01/08/Python/%E8%BF%90%E7%AE%97%E7%AC%A6/" title="无题">无题</a><time datetime="2024-01-08T07:01:50.224Z" title="发表于 2024-01-08 15:01:50">2024-01-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/01/08/Python/%E8%8E%B7%E5%8F%96%E9%94%AE%E7%9B%98%E8%BE%93%E5%85%A5/" title="无题">无题</a><time datetime="2024-01-08T07:01:50.223Z" title="发表于 2024-01-08 15:01:50">2024-01-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/01/08/Python/%E8%AF%AD%E5%8F%A5continue%E5%92%8Cbreak/" title="无题">无题</a><time datetime="2024-01-08T07:01:50.223Z" title="发表于 2024-01-08 15:01:50">2024-01-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/01/08/Python/%E7%BC%96%E8%BE%91%E5%99%A8PyCharm%E5%BF%AB%E6%8D%B7%E9%94%AE/" title="无题">无题</a><time datetime="2024-01-08T07:01:50.222Z" title="发表于 2024-01-08 15:01:50">2024-01-08</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2024 By Asuka</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="chat-btn" type="button" title="聊天"><i class="fas fa-sms"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.12.0"></script><script src="/js/main.js?v=4.12.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.32/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>(() => {
+  const initWaline = () => {
+    const waline = Waline.init(Object.assign({
+      el: '#waline-wrap',
+      serverURL: 'https://waline-nu-two.vercel.app/',
+      pageview: false,
+      dark: 'html[data-theme="dark"]',
+      path: window.location.pathname,
+      comment: false,
+    }, {"requiredMeta":["nick"],"locale":{"placeholder":"请勿发表政治相关言论!!! 或是抱怨人生诸事不满!!! 仅以学习交流为目的"}}))
+
+    const destroyWaline = () => {
+      waline.destroy()
+    }
+
+    btf.addGlobalFn('pjax', destroyWaline, 'destroyWaline')
+
+  }
+
+  const loadWaline = async () => {
+    if (typeof Waline === 'object') initWaline()
+    else {
+      await getCSS('https://cdn.jsdelivr.net/npm/@waline/client@2.15.8/dist/waline.min.css')
+      await getScript('https://cdn.jsdelivr.net/npm/@waline/client@2.15.8/dist/waline.min.js')
+      initWaline()
+    }
+  }
+
+  if ('Waline' === 'Waline' || !false) {
+    if (false) btf.loadComment(document.getElementById('waline-wrap'),loadWaline)
+    else setTimeout(loadWaline, 0)
+  } else {
+    window.loadOtherComment = loadWaline
+  }
+})()</script></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.12.0"></script></div></div></body></html>
