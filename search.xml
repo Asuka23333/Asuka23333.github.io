@@ -3,9 +3,37 @@
   <entry>
     <title>数据容器-序列</title>
     <url>/2024/01/27/Python/%E5%BA%8F%E5%88%97/</url>
-    <content><![CDATA[<h1 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h1><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 列表定义</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+    <content><![CDATA[<h1 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h1><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 定义: 用于存储数据的容器. 格式以方括号[元素, 元素]包裹内部元素. 可以自我嵌套, 也可以嵌套其他数据容器.</span></span><br><span class="line"><span class="comment"># 语法定义: </span></span><br><span class="line">a = <span class="built_in">list</span>()</span><br><span class="line">a = []</span><br><span class="line">a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br></pre></td></tr></table></figure>
 
-]]></content>
+
+
+<h2 id="列表的特性"><a href="#列表的特性" class="headerlink" title="列表的特性"></a>列表的特性</h2><p>1, 对变量的赋值实际上是对于数据内存地址的引用关联</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 当我们对变量b进行列表a的赋值操作的时候</span></span><br><span class="line">a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">b = a</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;a: <span class="subst">&#123;<span class="built_in">hex</span>(<span class="built_in">id</span>(a))&#125;</span>, b: <span class="subst">&#123;<span class="built_in">hex</span>(<span class="built_in">id</span>(b))&#125;</span>&quot;</span>)</span><br><span class="line"><span class="comment"># hex方法是对id方法结果进行十六进制转换</span></span><br></pre></td></tr></table></figure>
+
+<p>输出结果为:</p>
+<blockquote>
+<p>a: 0x14d70a1d2c0, b: 0x14d70a1d2c0</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 因为a和b是相当于指针, 指向同一数据的内存地址, 因此在对b进行操作的时候.同时也会影响到a</span></span><br><span class="line">a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">b = a</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;a: <span class="subst">&#123;<span class="built_in">hex</span>(<span class="built_in">id</span>(a))&#125;</span>, b: <span class="subst">&#123;<span class="built_in">hex</span>(<span class="built_in">id</span>(b))&#125;</span>&quot;</span>)</span><br><span class="line">b.append(<span class="number">4</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;对b列表进行元素增加之后  a: <span class="subst">&#123;a&#125;</span>, b: <span class="subst">&#123;b&#125;</span>&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;内存地址  a: <span class="subst">&#123;<span class="built_in">hex</span>(<span class="built_in">id</span>(a))&#125;</span>, b: <span class="subst">&#123;<span class="built_in">hex</span>(<span class="built_in">id</span>(b))&#125;</span>&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为:</p>
+<blockquote>
+<p>对b列表进行元素增加之后  a: [1, 2, 3, 4], b: [1, 2, 3, 4]</p>
+<p>内存地址  a: 0x23b75e1d2c0, b: 0x23b75e1d2c0</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 拥有同样性质的列表操作方法全部如下</span></span><br><span class="line">a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">b = a</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;a: <span class="subst">&#123;<span class="built_in">hex</span>(<span class="built_in">id</span>(a))&#125;</span>,\t\t\t b: <span class="subst">&#123;<span class="built_in">hex</span>(<span class="built_in">id</span>(b))&#125;</span>&quot;</span>)</span><br><span class="line">b.append(<span class="number">4</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;a: <span class="subst">&#123;a&#125;</span>,\t\t\t b: <span class="subst">&#123;b&#125;</span>&quot;</span>)</span><br><span class="line">b.extend([<span class="number">5</span>, <span class="number">6</span>])</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;a: <span class="subst">&#123;a&#125;</span>,\t\t\t b: <span class="subst">&#123;b&#125;</span>&quot;</span>)</span><br><span class="line">b.insert(<span class="number">3</span>, <span class="number">100</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;a: <span class="subst">&#123;a&#125;</span>,\t\t\t b: <span class="subst">&#123;b&#125;</span>&quot;</span>)</span><br><span class="line">b.remove(<span class="number">100</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;a: <span class="subst">&#123;a&#125;</span>,\t\t\t b: <span class="subst">&#123;b&#125;</span>&quot;</span>)</span><br><span class="line">b.sort(reverse = <span class="literal">True</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;a: <span class="subst">&#123;a&#125;</span>,\t\t\t b: <span class="subst">&#123;b&#125;</span>&quot;</span>)</span><br><span class="line">b.pop()</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;a: <span class="subst">&#123;a&#125;</span>,\t\t\t b: <span class="subst">&#123;b&#125;</span>&quot;</span>)</span><br><span class="line">b.clear()</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;a: <span class="subst">&#123;a&#125;</span>,\t\t\t b: <span class="subst">&#123;b&#125;</span>&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为:</p>
+<blockquote>
+<p>a: 0x23c51b5d2c0,			 b: 0x23c51b5d2c0<br>a: [1, 2, 3, 4],			 b: [1, 2, 3, 4]<br>a: [1, 2, 3, 4, 5, 6],			 b: [1, 2, 3, 4, 5, 6]<br>a: [1, 2, 3, 100, 4, 5, 6],			 b: [1, 2, 3, 100, 4, 5, 6]<br>a: [1, 2, 3, 4, 5, 6],			 b: [1, 2, 3, 4, 5, 6]<br>a: [6, 5, 4, 3, 2, 1],			 b: [6, 5, 4, 3, 2, 1]<br>a: [6, 5, 4, 3, 2],			 b: [6, 5, 4, 3, 2]<br>a: [],			 b: []</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 生成一个新的列表</span></span><br><span class="line">a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">b = a</span><br><span class="line">c = b.copy()</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;a: <span class="subst">&#123;<span class="built_in">hex</span>(<span class="built_in">id</span>(a))&#125;</span>, b: <span class="subst">&#123;<span class="built_in">hex</span>(<span class="built_in">id</span>(b))&#125;</span>, c: <span class="subst">&#123;<span class="built_in">hex</span>(<span class="built_in">id</span>(c))&#125;</span>&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为:</p>
+<blockquote>
+<p>a: 0x1d57ca5d2c0, b: 0x1d57ca5d2c0, c: 0x1d57cdc7040</p>
+</blockquote>
+<h1 id="列表的方式实现栈"><a href="#列表的方式实现栈" class="headerlink" title="列表的方式实现栈"></a>列表的方式实现栈</h1>]]></content>
       <categories>
         <category>Python</category>
       </categories>
